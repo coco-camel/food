@@ -21,12 +21,14 @@
     </style>
 <!-- 담당 김우정 -->
     <h3>Login Page</h3>
-    <div class="myinput">
-        <p>ID : <input type="text" placeholder="Email"></p>
-        <p>PW : <input type="text" placeholder="Password"></p>
-    </div>
-    <p>회원가입</p> <P>비밀번호를 잊으셨나요?</P>
-    <button>Login</button>
+    <form action="/login" method="POST">
+        <div class="myinput">
+            <p>ID : <input type="text" name="id" placeholder="Id"></p>
+            <p>PW : <input type="text" name="password" placeholder="Password"></p>
+        </div>
+        <p>회원가입</p> <P>비밀번호를 잊으셨나요?</P>
+        <button>Login</button>
+    </form>
 
 </body>
 
