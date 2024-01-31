@@ -35,7 +35,7 @@
         list-style: none;
         padding: 20px;
         display: flex;
-        justify-content: space-between;
+        justify-content: center
       
     }
 
@@ -70,18 +70,19 @@
         text-decoration: none; /* 추가: a 태그의 기본 텍스트 밑줄 제거 */
         color: inherit; /* 추가: a 태그의 기본 색상 사용 */
         font-family: "Cute Font", sans-serif;
-        font-weight: 800;
+        font-weight: 700;
     }
 
  .navbar-logo{
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
  }
  .navbar-logo p{
 font-size: 40px;
 margin-right: 30px;
 font-family: "Poor Story", system-ui;
+font-weight: 800;
  }
 
 
@@ -92,8 +93,13 @@ font-family: "Poor Story", system-ui;
     }
 
     #img {
+        margin-right: 30px;
         width: 90px;
     height: 100px;
+}
+
+.login{
+    margin-left: 80%;
 }
 
    
@@ -102,10 +108,11 @@ font-family: "Poor Story", system-ui;
 <nav>
  
 <div  class="navbar">
-
+    <a class="login" href="#">login</a>
 <div  class="navbar-logo"> 
+   
     <a href="#"><img src="https://cdn.pixabay.com/photo/2012/04/01/18/01/backpacking-23788_1280.png" id="img"></a>
-    <p>맛집  발견  대장정</p> <a href="#">login</a>
+    <p>맛집  발견  대장정</p> 
 </div>
 
 
