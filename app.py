@@ -21,6 +21,11 @@ class Restaurant(db.Model):
     location_url = db.Column(db.String(10000), nullable=False)
     image_url = db.Column(db.String(10000), nullable=False)
 
+class Register (db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    user = db.Column(db.String(100), nullable=False)
+    password = db.Column(db.String(100), nullable=False)
+
 
 with app.app_context():
     db.create_all()
