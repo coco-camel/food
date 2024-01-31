@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cute+Font&family=Diphylleia&family=Poor+Story&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+    }
+
+    .navbar {
+
+    background: rgb(255, 251, 243);
+    display: flex;
+    justify-content: center;
+    padding: 15px;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-content: center;
+        }
+
+    .navbar-items {
+        list-style: none;
+        padding: 20px;
+        display: flex;
+        justify-content: space-between;
+      
+    }
+
+    .navbar ul {
+   
+        display: flex;
+        font-size: 20px;
+        text-align: center;
+        text-decoration: none;
+        flex-wrap: nowrap;
+        justify-content: space-evenly;
+        align-items: center;
+
+        list-style: none;
+
+        margin: 0; /* 추가: 기본 마진 제거 */
+        display: flex;
+    }
+
+    .navbar li {
+        margin-right: 30px;
+        position: relative;
+        background-color: rgb(255, 237, 138);
+        border-radius: 20px;
+        font-size: 18px;
+        padding: 10px;
+        
+    }
+
+
+    .navbar li a {
+        text-decoration: none; /* 추가: a 태그의 기본 텍스트 밑줄 제거 */
+        color: inherit; /* 추가: a 태그의 기본 색상 사용 */
+        font-family: "Cute Font", sans-serif;
+        font-weight: 800;
+    }
+
+ .navbar-logo{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+ }
+ .navbar-logo p{
+font-size: 40px;
+margin-right: 30px;
+font-family: "Poor Story", system-ui;
+ }
+
+
+
+    .navbar li:hover a {
+        color: #ffffff;
+ 
+    }
+
+    #img {
+        width: 90px;
+    height: 100px;
+}
+
+   
+    
+</style>
+<nav>
+ 
+<div  class="navbar">
+
+<div  class="navbar-logo"> 
+    <a href="#"><img src="https://cdn.pixabay.com/photo/2012/04/01/18/01/backpacking-23788_1280.png" id="img"></a>
+    <p>맛집  발견  대장정</p> <a href="#">login</a>
+</div>
+
+
+    <div class="navbar-items">
+        <ul>
+            <li>
+                <a href="#">맛집조회</a>
+            </li>
+            <li>
+                <a href="#">한식</a>
+            </li>
+
+            <li>
+                <a href="#">중식</a>
+            </li>
+
+            <li>
+                <a href="#">양식</a>
+            </li>
+
+            <li>
+                <a href="#">일식</a>
+            </li>
+        </ul>
+    </div>
+
+</div>   
+</nav>
+
+</body>
+
+</html>

@@ -5,45 +5,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>맛집 발견 대장정</title>
+    <link rel="stylesheet" href="style.css"/>
 </head>
 
 <body>
-<!-- 담당 이혜인 , 김준오-->
+<!-- 담당 이혜인, 김준오 -->
 <nav>
-  <li>
-    <ul>한식</ul>
-    <ul>중식</ul>
-    <ul>일식</ul>
-    <ul>양식</ul>
-</li>
+    {% include 'header.html' %}  
 </nav>
 
 <input type="text" placeholder="검색어 입력">
 
 <p>프로젝트 주제 설명란</p>
 
+<img src="카테고리이미지1.jpg"> <p>명동 맛집</p>
+<img src="카테고리이미지2.jpg"> <p>홍대 맛집</p>
+<img src="카테고리이미지3.jpg"> <p></p>
+<img src="카테고리이미지4.jpg"> <p>오늘 한식 어때요?</p>
+<img src="카테고리이미지4.jpg"> <p>카테고리 4</p>
+<img src="카테고리이미지4.jpg"> <p>카테고리 4</p>
+<!-- 글 올린거 두개정도? 
+ex) 오늘 한식어때요? ㅁ 한식조회 -> -->
 
-<img src="#"> <p>카테고리 이동</p>
-<img src="#"> <p>카테고리 이동</p>
-<img src="#"> <p>카테고리 이동</p>
-<img src="#"> <p>카테고리 이동</p>
 
-<button>맛집추가</button>
-
-
-
-</div>
-
-<img src="#"> <p>맛집이름</p>
-<img src="#"> <p>맛집이름</p>
-<img src="#"> <p>맛집이름</p>
-<img src="#"> <p>맛집이름</p>
 
 
 <footer>
-    <p>관리자 로그인</p>
+    {% include 'footer.html' %}  
 </footer>
-
 
 </body>
 
