@@ -6,7 +6,7 @@
     <title>Document</title>
     <style>
       .myinput {
-        border: 2px solid #6a24fe;
+        border: 3px solid rgb(228, 206, 159);
         width: 400px;
         height: 300px;
         border-radius: 1rem;
@@ -29,7 +29,6 @@
         width: 15rem;
         padding: 1rem;
         border: 1px solid black;
-        border-radius: 1rem;
       }
       .idbox,
       .pwbox {
@@ -38,12 +37,16 @@
         align-items: center;
         width: 100%;
       }
+      .pwbox > input {
+        border-width: 0 0 1px;
+      }
       .idbox > input {
         margin-left: 1rem;
+        border-width: 0 0 1px;
       }
       .joinBtn {
         border: none;
-        background-color: #6a24fe;
+        background-color: rgb(228, 206, 159);
         padding: 1rem 1rem;
         border-radius: 1rem;
         color: white;
@@ -52,19 +55,17 @@
     </style>
   </head>
   <body>
+    <nav>{% include 'header.html' %}</nav>
     <div class="myinput">
       <form action="{{url_for('user_create')}}" , method="POST">
+        {% with messages = get_flashed_messages() %} {% if messages %}
+        <script>
+          alert("{{messages[-1]}}");
+        </script>
+        {% endif %} {% endwith %}
 
-        {% with messages = get_flashed_messages() %}
-          {% if messages %}
-            <script>
-              alert("{{messages[-1]}}")
-            </script>
-          {% endif %}
-        {% endwith %}
-        
         <div class="idbox">
-          <label for="user">아이디</label>
+          <label for="user">아이디 </label>
           <input
             type="text"
             placeholder="아이디를 입력하세요."
