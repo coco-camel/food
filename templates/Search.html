@@ -1,31 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
+    <link rel="stylesheet" href="../static/main.css" />
+  </head>
+  <body>
+    <header>
+      <!-- 카테고리 -->
 
-<body>
-    <nav>
-        <li>
-            <ul>한식</ul>
-            <ul>중식</ul>
-            <ul>일식</ul>
-            <ul>양식</ul>
-        </li>
-    </nav>
+      <div class="navbar">영역300</div>
 
+      <a href="{{url_for('main')}}">홈홈홈</a>
+      <form action="{{url_for('render_location_filter')}}">
+        <input type="text" name="location" />
+        <button type="submit" id="search">검색</button>
+      </form>
+    </header>
 
-    <p>요청하신 검색 결과를 찾을 수 없습니다</p>
+    <div class="container">
+      {% for item in data %}
+      <form action="{{url_for(delete_restaurant)}}">
+      <div class="item">
+        <a href="{{ item.location_url }}" target="_blank">
+          <img src="{{ item.image_url }}" alt="" />
+        </a>
+        <div>
+          <h5>{{ item.name }}</h5>
+          <h5>{{ item.description }}</h5>
+          <a href ="modify">{{}}</a>
+          <button type="submit">삭제</button>
+        </div>
+      </div>
+      </form>
+      {% endfor %}
+    </div>
 
-    <button>이전페이지로 돌아가기</button>
-
-
-
-
-
-</body>
-
+    <footer>footer영역</footer>
+  </body>
 </html>
