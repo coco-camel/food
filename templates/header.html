@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -21,7 +22,19 @@
       integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
       crossorigin="anonymous"
     />
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <style>
+
+.lockStatusButton {
+  color: #ff0000; /* 빨간색 */
+  /* 다른 스타일 속성들 */
+}
+
+.unlockStatusButton {
+  color: #00ff00; /* 초록색 */
+  /* 다른 스타일 속성들 */
+}
+
       .navbar-logo {
         display: flex;
         justify-content: center;
@@ -74,7 +87,63 @@
         height: 200px;
         padding: 10px;
       }
+      .navbar-li {
+  margin-right: 35px;
+  position: relative;
+  background-color: rgb(255, 159, 69);
+  border-radius: 20px;
+  font-size: 18px;
+  padding: 6px;
+  box-shadow: 3px 3px 8px 3px rgb(177, 177, 177);
+  min-width: 80px;
+}
+.navbar-items {
+  list-style: none;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+.sign {
+  display: inline-block;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
 
+    border-radius: 15px; /* 모서리 둥글게 */
+    background-color: #5de73a; /* 초록색 배경색 */
+    color: white; /* 텍스트 색상 */
+    font-size: 16px;
+}
+.navbar-ul {
+  display: flex;
+  font-size: 20px;
+  text-align: center;
+  text-decoration: none;
+  flex-wrap: nowrap;
+  justify-content: space-evenly;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  /* 추가: 기본 마진 제거 */
+  display: flex;
+}
+.navbar-li-a {
+  text-decoration: none;
+  /* 추가: a 태그의 기본 텍스트 밑줄 제거 */
+  color: #ffffff;
+  /* 추가: a 태그의 기본 색상 사용 */
+  font-family: "Cute Font", sans-serif;
+  ;
+}
+
+
+.navbar-li-a:hover {
+  color: #000000;
+  /* 호버시 색상 변경 */
+}
       .wrap {
         padding-top: 30px;
         width: 30%;
@@ -92,9 +161,7 @@
         align-items: center;
         background-color: #f2eee0;
       }
-      .navbar > .login {
-        padding-left: 30px;
-      }
+ 
     </style>
   </head>
 
@@ -131,15 +198,25 @@
         </div>
         <div class="login">
           {% block content %}
-          {% if session['login'] %}
-              <a href="/logout">로그아웃</a>
+              {% if session['login'] %}
+                  <a class="lockStatusButton" href="/logout">
+                      <i class="material-icons lockIcon">lock_outline</i>
+                  </a>
               {% else %}
-              <a href="/login">로그인</a>
-              {% endif %}
-      {% endblock %}
-      <a style="margin-left: 40px" href="/join">Sign Up</a>
-        </div>
-
+                  <div class="container">
+                      <a class="unlockStatusButton" href="/login">
+                          <i class="material-icons unlockIcon">lock_open</i>
+                      </a>
+                  </div>
+                    
+                    </div>
+              
+                     {% endif %}
+          {% endblock %}
+          <a class="sign" {% if session['login'] %} style="display: none;" {% endif %} href="/join">Sign Up</a>
+    </nav>
+  
+      
         <!-- <div class="navbar-logo">
                 <a href="#"><img src="https://cdn.pixabay.com/photo/2012/04/01/18/01/backpacking-23788_1280.png"
                         id="img"></a>
@@ -167,26 +244,17 @@
     <!-- Your page content goes here -->
 
     <script>
-      window.addEventListener("scroll", function () {
-        var navbar = document.getElementById("navbar");
+$( ".unlockStatusButton" ).click(function() {
+  $( ".unlockStatusButton" ).hide();
+  $( ".lockStatusButton" ).show();
+  $(".signup").hide();
+});
 
-        // Scroll position is greater than 50px, show navbar, else hide it
-        if (window.scrollY > 50) {
-          navbar.style.top = "-50px";
-        } else {
-          navbar.style.top = "-50px";
-        }
-      });
-      window.addEventListener('scroll', function () {
-          var navbar = document.getElementById('navbar');
-      
-          // Scroll position is greater than 50px, show navbar, else hide it
-          if (window.scrollY > 50) {
-              navbar.style.top = '-50px';
-          } else {
-              navbar.style.top = '-50px';
-          }
-      });
+$( ".lockStatusButton" ).click(function() {
+  $( ".lockStatusButton" ).hide();
+  $( ".unlockStatusButton" ).show();
+  $(".signup").show();
+});
     </script>
   </body>
 </html>

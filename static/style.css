@@ -168,58 +168,9 @@
   /* 선택된 슬라이드에 대한 배경색으로 변경하세요 */
 }
 
-.navbar-items {
-  list-style: none;
-  padding: 20px;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-}
-
-.navbar-ul {
-  display: flex;
-  font-size: 20px;
-  text-align: center;
-  text-decoration: none;
-  flex-wrap: nowrap;
-  justify-content: space-evenly;
-  align-items: center;
-  list-style: none;
-  margin: 0;
-  /* 추가: 기본 마진 제거 */
-  display: flex;
-}
-
 .wrap {
   padding-top: 10px;
   width: 35%;
   padding-bottom: 30px;
 }
 
-.navbar-li {
-  margin-right: 35px;
-  position: relative;
-  background-color: rgb(228, 206, 159);
-  border-radius: 20px;
-  font-size: 18px;
-  padding: 6px;
-  box-shadow: 3px 3px 8px 3px rgb(177, 177, 177);
-  min-width: 80px;
-}
-
-
-.navbar-li-a {
-  text-decoration: none;
-  /* 추가: a 태그의 기본 텍스트 밑줄 제거 */
-  color: #ffffff;
-  /* 추가: a 태그의 기본 색상 사용 */
-  font-family: "Cute Font", sans-serif;
-  ;
-}
-
-
-.navbar-li-a:hover {
-  color: #000000;
-  /* 호버시 색상 변경 */
-}
