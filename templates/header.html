@@ -11,129 +11,142 @@
     <link href="https://fonts.googleapis.com/css2?family=Cute+Font&family=Diphylleia&family=Poor+Story&display=swap"
         rel="stylesheet">
 
-</head>
-
-<body>
-
-<style>
+    <style>
         body {
             margin: 0;
             font-family: Arial, sans-serif;
         }
 
-        .navbar {
+        nav {
+            position: fixed;
+            width: 100%;
+            top: -50px;
+            /* Initial hidden state */
+            transition: top 0.3s;
+            /* Transition effect when showing/hiding */
+            z-index: 1000;
+            /* Ensure the navbar stays on top of other elements */
+        }
 
+
+        .navbar {
             background: rgb(255, 251, 243);
             display: flex;
-            justify-content: center;
-            padding: 15px;
+            justify-content: space-around;
+            padding: 0px;
             flex-wrap: wrap;
-            flex-direction: column;
+            flex-direction: row;
             align-content: center;
-        }
-
-
-
-        .navbar-logo {
-            display: flex;
-            justify-content: center;
+            min-height: 50px;
             align-items: center;
+            padding-top: 50px;
         }
 
-        .navbar-logo p {
-            font-size: 40px;
-            margin-right: 30px;
-            font-family: "Poor Story", system-ui;
-            font-weight: 800;
-        }
+            .navbar-logo {
+                display: flex;
+                justify-content: center;
+                align-items: flex-end;
+            }
 
-        .search {
-  width: 100%;
-  position: relative;
-  display: flex;
-}
+            .navbar-logo p {
+                font-size: 40px;
+                margin-right: 30px;
+                font-family: "Poor Story", system-ui;
+                font-weight: 800;
+            }
 
-.searchTerm {
-  width: 100%;
-  border: 3px solid #ffa136;
-  border-right: none;
-  padding: 5px;
+            .search {
+                width: 100%;
+                position: relative;
+                display: flex;
+            }
 
-  border-radius: 14px 0 0 14px;
-  outline: none;
-  color: #d3dfd9;
-}
+            .searchTerm {
+                width: 100%;
+                border: 3px solid #ffa136;
+                border-right: none;
+                padding: 5px;
+                border-radius: 14px 0 0 14px;
+                outline: none;
+                color: #d3dfd9;
+            }
 
+            .searchTerm:focus {
+                color: #b18c25;
+            }
 
+            .searchButton {
+                width: 40px;
+                height: 36px;
+                border: none;
+                background: rgb(255, 197, 37);
+                text-align: center;
+                color: #fff;
+                border-radius: 0 14px 14px 0;
+                cursor: pointer;
+                font-size: 20px;
+            }
 
+            #img {
+                margin-right: 30px;
+                width: 90px;
+                height: 100px;
+            }
 
-.searchTerm:focus{
-  color: #b18c25;
-}
+            .wrap {
+                padding-top: 30px;
+                width: 30%;
+                display: flex;
+                align-items: flex-end;
+            }
 
-.searchButton {
-  width: 40px;
-  height: 36px;
-  border: none;
-  background: rgb(255, 197, 37);
-  text-align: center;
-  color: #fff;
-  border-radius: 0 14px 14px 0;
-  cursor: pointer;
-  font-size: 20px;
-}
+            .login {
+                padding-left: 20px;
+            }
+    </style>
+</head>
 
-
-    #img {
-        margin-right: 30px;
-        width: 90px;
-        height: 100px;
-    }
-
-    .login {
-        margin-left: 80%;
-    }
-
-    .wrap {
-        padding-top: 30px;
-        width: 30%;
-    }
-
-    
-</style>
-    <nav>
-
+<body>
+    <nav id="navbar">
         <div class="navbar">
-            <a class="login" href="#">login</a>
-            <div class="navbar-logo">
 
+            <div class="navbar-logo">
                 <a href="#"><img src="https://cdn.pixabay.com/photo/2012/04/01/18/01/backpacking-23788_1280.png"
                         id="img"></a>
                 <p>맛집 발견 대장정</p>
             </div>
             <div class="wrap">
                 <div class="search">
-                   <input type="text" class="searchTerm" placeholder="맛집을 검색하세요!">
-                   <button type="submit" class="searchButton">
-                     <i class="fa fa-search"></i>
-                  </button>
+                    <input type="text" class="searchTerm" placeholder="맛집을 검색하세요!">
+                    <button type="submit" class="searchButton">
+                        <i class="fa fa-search"></i>
+                    </button>
                 </div>
-             </div>
-       
-    
-                
-            
-                
-         </div>
 
+                <a class="login" href="#">Login</a><a class="login" href="#">SignUp</a>
+            </div>
 
         </div>
 
-
-
-        </div>
     </nav>
 
+    <!-- Your page content goes here -->
+
+    <script>
+        window.addEventListener('scroll', function () {
+            var navbar = document.getElementById('navbar');
+
+            // Scroll position is greater than 50px, show navbar, else hide it
+            if (window.scrollY > 50) {
+                navbar.style.top = '-50px';
+            } else {
+                navbar.style.top = '-50px';
+            }
+        });
+
+
+    </script>
 </body>
+
 
 </html>
