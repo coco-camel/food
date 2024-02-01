@@ -37,7 +37,17 @@ with app.app_context():
 def home():
     return render_template('index.html')
 
-# 회원가입
+# 회원가입 페이지
+@app.route("/join")
+def join_screen():
+    return render_template("join.html");
+
+# 맛집 추천 페이지
+@app.route("/recommend")
+def recommend():
+    return render_template("page.html")
+
+# 회원가입 로직
 @app.route("/user/regist", methods=['GET', 'POST'])
 def user_create():
     user = request.form.get("user")
@@ -48,10 +58,10 @@ def user_create():
 
     if user_exists:
         flash("이미 존재하는 아이디입니다.")
-        return redirect(url_for("join"))
+        return redirect(url_for("join_screen"))
     elif password_exists:
         flash("고유한 비밀번호를 입력해주세요.")
-        return redirect(url_for("join"))
+        return redirect(url_for("join_screen"))
     else:
         user_account = Register(user=user, password=password)
         db.session.add(user_account)
