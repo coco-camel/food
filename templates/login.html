@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Login</title>
 </head>
 
 <body>
@@ -21,15 +21,29 @@
     </style>
     
 <!-- 담당 김우정 -->
+    {% block content %}
+        {% if session['login'] %}
+            <p>이미 로그인하셨습니다😄</p>
+            <a href="/">메인 화면</a>
+            <a href="/logout">로그아웃</a>
+        {% else %}
+    
     <h3>Login Page</h3>
-    <form action="/login" method="POST">
         <div class="myinput">
-            <p>ID : <input type="text" name="id" placeholder="Id"></p>
-            <p>PW : <input type="text" name="password" placeholder="Password"></p>
+            <form action="/login" method="POST">
+                <p>ID : <input type="text" name="id" placeholder="Id"></p>
+                <p>PW : <input type="text" name="password" placeholder="Password"></p>
+                <input type="submit" value="로그인">
+                <br><br>
+                <a href="/join">회원가입</a> <button>비밀번호를 잊으셨나요?</button>
+            </form>
         </div>
-        <p>회원가입</p> <P>비밀번호를 잊으셨나요?</P>
-        <button>Login</button>
-    </form>
+        {% endif %}
+        
+        {% if message and not session.get('login') %}
+            <p style="color: red;">{{ message }}</p>
+        {% endif %}
+    {% endblock %}
 
 </body>
 
