@@ -127,19 +127,19 @@
                        <a class="navbar-li-a" href="{{url_for('main')}}">맛집조회</a>
                    </li>
                    <li class="navbar-li">
-                       <a class="navbar-li-a" href="#" id = "korean" value = "korean">🍲한식</a>
+                       <a class="navbar-li-a" href="{{url_for('main_cate', category= '한식')}}" id = "korean" value = "korean">🍲한식</a>
                    </li>
            
                    <li class="navbar-li">
-                       <a class="navbar-li-a" href="#" id = "chinese">🥡중식</a>
+                       <a class="navbar-li-a" href="{{url_for('main_cate', category= '중식')}}" id = "chinese">🥡중식</a>
                    </li>
            
                    <li class="navbar-li">
-                       <a class="navbar-li-a" href="#" id = "western">🥩양식</a>
+                       <a class="navbar-li-a" href="{{url_for('main_cate', category= '양식')}}" id = "western">🥩양식</a>
                    </li>
            
                    <li class="navbar-li">
-                       <a class="navbar-li-a" href="#" id = "japanese">🍣일식</a>
+                       <a class="navbar-li-a" href="{{url_for('main_cate', category= '일식')}}" id = "japanese">🍣일식</a>
                    </li>
                </ul>
             </div>

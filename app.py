@@ -35,30 +35,31 @@ with app.app_context():
 def home():
     return render_template('index.html')
 
-
+# 전체출력
 @app.route("/main/list", methods=['GET'])
 def main():
     restaurant_list = Restaurant.query.all()
     return render_template('search.html', data = restaurant_list)
 
 
-@app.route("/main/list/location")
-def render_location_filter():
+# 카테고리
+@app.route("/main/list/category=<category>", methods=['GET'])
+def main_cate(category):
+    location = request.args.get("location")
+    if category != None and not location:
+        restaurant_list = Restaurant.query.filter_by(category=category).all()
+    else:
+        restaurant_list = Restaurant.query.filter_by(category=category, location=location).all()
 
-    searchQuery = request.args.get("location")
+    return render_template('search.html', data = restaurant_list, data1 = category)
 
-    if searchQuery:
-        location = searchQuery
-        filter_restaurant = Restaurant.query.filter_by(location = searchQuery).all()
-        return render_template("search.html", data = filter_restaurant)
-    else: # searchQuery 없을 때 main 화면 렌더링
-        return redirect(url_for('main'))
+
     
-    
-    # 게시글 삭제
+    # 게시글 삭제/수정조작
 @app.route("/main/list/delete", methods=['DELETE'])
-def delete_restaurant():
+def delete_post():
 
+    id = request.args.get("delete_id")
     delete_restaurant = Restaurant.query.filter_by(id=id).first()
     db.session.delete(delete_restaurant)
     db.session.commit
