@@ -18,34 +18,32 @@
         }
 
         nav {
-            position: fixed;
-            width: 100%;
-            top: -50px;
-            /* Initial hidden state */
-            transition: top 0.3s;
-            /* Transition effect when showing/hiding */
+       
+            width: 100%;          
+            transition: top 0.3s;   
             z-index: 1000;
-            /* Ensure the navbar stays on top of other elements */
+       
         }
-
 
         .navbar {
-            background: rgb(255, 251, 243);
-            display: flex;
-            justify-content: space-around;
-            padding: 0px;
-            flex-wrap: wrap;
-            flex-direction: row;
-            align-content: center;
-            min-height: 50px;
-            align-items: center;
-            padding-top: 50px;
-        }
+    background: rgb(255, 251, 243);
+    display: flex;
+    justify-content: space-around;
+    padding: 0px;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-content: center;
+    min-height: 50px;
+    align-items: center;
+ 
+}
 
-            .navbar-logo {
-                display: flex;
-                justify-content: center;
-                align-items: flex-end;
+        .navbar-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
             }
 
             .navbar-logo p {
@@ -89,8 +87,9 @@
 
             #img {
                 margin-right: 30px;
-                width: 90px;
-                height: 100px;
+                width: 200px;
+                height: 200px;
+                padding: 10px;
             }
 
             .wrap {
@@ -103,19 +102,60 @@
             .login {
                 padding-left: 20px;
             }
+            .navbar{
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+            }
+            .navbar>.login{
+                padding-left: 20px;
+                position: absolute;
+                /* left: 0; */
+                right: 40px;
+            }
+                
     </style>
 </head>
 
 <body>
     <nav id="navbar">
         <div class="navbar">
+            <div class="navbar-items">
+                <ul class="navbar-ul">
+                   <li class="navbar-li">
+                       <a class="navbar-li-a" href="#">맛집조회</a>
+                   </li>
+                   <li class="navbar-li">
+                       <a class="navbar-li-a" href="#">🍲한식</a>
+                   </li>
+           
+                   <li class="navbar-li">
+                       <a class="navbar-li-a" href="#">🥡중식</a>
+                   </li>
+           
+                   <li class="navbar-li">
+                       <a class="navbar-li-a" href="#">🥩양식</a>
+                   </li>
+           
+                   <li class="navbar-li">
+                       <a class="navbar-li-a" href="#">🍣일식</a>
+                   </li>
+               </ul>
+            </div>
+            <div class="login">
+               
+                <a href="#">login</a><a href="#">Sign Up</a>
+            </div>
 
-            <div class="navbar-logo">
+
+
+            <!-- <div class="navbar-logo">
                 <a href="#"><img src="https://cdn.pixabay.com/photo/2012/04/01/18/01/backpacking-23788_1280.png"
                         id="img"></a>
                 <p>맛집 발견 대장정</p>
-            </div>
-            <div class="wrap">
+            </div> -->
+            <!-- <div class="wrap">
                 <div class="search">
                     <input type="text" class="searchTerm" placeholder="맛집을 검색하세요!">
                     <button type="submit" class="searchButton">
@@ -124,7 +164,7 @@
                 </div>
 
                 <a class="login" href="#">Login</a><a class="login" href="#">SignUp</a>
-            </div>
+            </div> -->
 
         </div>
 
