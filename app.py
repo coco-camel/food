@@ -1,11 +1,13 @@
+import json
 from flask_sqlalchemy import SQLAlchemy
 import os
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect, url_for, flash
 app = Flask(__name__)
 
 # db setting
 basedir = os.path.abspath(os.path.dirname(__file__))
 app = Flask(__name__)
+app.secret_key = os.urandom(24)
 app.config['SQLALCHEMY_DATABASE_URI'] =\
     'sqlite:///' + os.path.join(basedir, 'database.db')
 
@@ -35,6 +37,44 @@ with app.app_context():
 def home():
     return render_template('index.html')
 
+# 회원가입
+@app.route("/user/regist", methods=['GET', 'POST'])
+def user_create():
+    user = request.form.get("user")
+    password = request.form.get("password")
+
+    user_exists = Register.query.filter_by(user = user).first()
+    password_exists = Register.query.filter_by(password=password).first()
+
+    if user_exists:
+        flash("이미 존재하는 아이디입니다.")
+        return redirect(url_for("join"))
+    elif password_exists:
+        flash("고유한 비밀번호를 입력해주세요.")
+        return redirect(url_for("join"))
+    else:
+        user_account = Register(user=user, password=password)
+        db.session.add(user_account)
+        db.session.commit()
+        return redirect(url_for("home"))
+
+# 게시글 작성
+@app.route("/main/list/write", methods=['GET', 'POST'])
+def recommend_restaurant():
+    name = request.form.get("name")
+    category = request.form.get("category")
+    location = request.form.get("location")
+    description = request.form.get("description")
+    location_url = request.form.get("location_url")
+    image_url = request.form.get("image_url")
+    
+    print(name, category, location, description, location_url, image_url)
+
+    recommend_list = Restaurant(name=name, category=category, location=location, description=description, location_url=location_url, image_url=image_url)
+    db.session.add(recommend_list)
+    db.session.commit()
+
+    return render_template("search.html")
 
 if __name__ == "__main__":
     app.run(debug=True)
