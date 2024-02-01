@@ -1,25 +1,164 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
-<!-- 담당 이충녕 -->
+    <style>
+      .recommendForm {
+        border: 2px solid #6a24fe;
+        width: 400px;
+        height: 650px;
+        border-radius: 1rem;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
 
-<h1>추천 맛집 공유</h1>
-<input placeholder="맛집 이름을 입력하세요.">
+      .formHeader {
+        display: flex;
+        justify-content: center;
+      }
 
-<h3>카테고리</h3>
-<input placeholder="카테고리">
+      .prevBtn {
+        text-decoration: none;
+        color: black;
+        font-weight: bold;
+        font-size: 1.5rem;
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        cursor: pointer;
+      }
 
-<h3>지역선택</h3>
-<input placeholder="지역선택">
+      form {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        font-size: 1rem;
+        height: 100%;
+      }
 
-<h3>맛집 주소</h3>
-<input placeholder="맛집 네이버 플레이스 url을 입력해주세요">
+      .selectTitle {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        width: 100%;
+        margin-left: 3rem;
+      }
 
+      .inputBox {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+      }
 
-</body>
+      input {
+        margin: 0.5rem 0;
+        width: 23rem;
+        padding: 1rem;
+        border: 1px solid black;
+        border-radius: 1rem;
+        box-sizing: border-box;
+        margin-left: 0.5rem;
+      }
+
+      select {
+        margin: 0.5rem 0;
+        width: 23rem;
+        padding: 1rem;
+        border: 1px solid black;
+        border-radius: 1rem;
+        box-sizing: border-box;
+        margin-left: 0.5rem;
+      }
+
+      .shareBtn {
+        border: none;
+        background-color: #6a24fe;
+        padding: 1rem 1rem;
+        border-radius: 1rem;
+        color: white;
+        cursor: pointer;
+        margin-top: 1rem;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 담당 이충녕 -->
+
+    <div class="recommendForm">
+      <div class="formHeader">
+        <h2>추천 맛집 공유</h2>
+        <!-- serch 페이지 이동 -->
+        <a href="/search" class="prevBtn">←</a>
+      </div>
+      <form action="{{url_for('recommend_restaurant')}}" , method="POST">
+        <div class="selectTitle">
+          <label for="name">맛집 이름</label>
+        </div>
+        <div class="inputBox">
+          <input placeholder="맛집 이름을 입력하세요." name="name" id="name" />
+        </div>
+
+        <div class="selectTitle">
+          <label for="category">카테고리</label>
+        </div>
+        <select name="category" id="category">
+          <option value="한식" name="한식">한식</option>
+          <option value="중식" name="중식">중식</option>
+          <option value="일식" name="일식">일식</option>
+          <option value="양식" name="양식">양식</option>
+        </select>
+
+        <div class="selectTitle">
+          <label for="location">지역선택</label>
+        </div>
+        <select name="location" id="location">
+          <option value="서울" name="서울">서울</option>
+          <option value="인천" name="인천">인천</option>
+          <option value="경기" name="경기">경기</option>
+          <option value="부산" name="부산">부산</option>
+          <option value="제주" name="제주">제주</option>
+        </select>
+
+        <div class="selectTitle">
+          <label for="description">맛집 설명</label>
+        </div>
+        <div class="inputBox">
+          <input
+            placeholder="추천 맛집에 대해 설명해주세요."
+            name="description"
+            id="description"
+          />
+        </div>
+
+        <div class="selectTitle">
+          <label for="location_url">맛집 주소</label>
+        </div>
+        <div class="location_urlBox">
+          <input
+            placeholder="맛집 네이버 플레이스 url을 입력해주세요"
+            name="location_url"
+            id="location_url"
+          />
+        </div>
+
+        <div class="selectTitle">
+          <label for="image_url">음식 이미지</label>
+        </div>
+        <div class="image_urlBox">
+          <input
+            placeholder="음식 이미지를 입력해주세요."
+            name="image_url"
+            id="image_url"
+          />
+        </div>
+
+        <button type="submit" class="shareBtn">공유</button>
+      </form>
+    </div>
+  </body>
 </html>
