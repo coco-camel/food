@@ -1,6 +1,7 @@
 from flask_sqlalchemy import SQLAlchemy
 import os
 from flask import Flask, render_template, request, redirect, url_for, session
+from datetime import timedelta
 
 app = Flask(__name__)
 
@@ -41,6 +42,12 @@ def home():
         return render_template('index.html', id=id)
 
 
+# 세션의 수명을 0초로 설정하여 브라우저가 닫힐 때 세션을 만료
+# 의도는 위의 설명대로지만...
+# 아래 코드를 넣으면 로그인 후 메인화면으로 리다이렉트 -> 그 후 다시 로그인 페이지로 돌아가면?!
+# 로그인이 풀려있습니다. 왤까요 ㅎ
+# app.permanent_session_lifetime = timedelta(seconds=0)
+
 
 # 로그인 라우트
 @app.route('/login', methods=['GET', 'POST'])
@@ -51,10 +58,11 @@ def login():
         # 클라이언트로부터 전송된 사용자 id, password 가져오기
         id = request.form['id']
         password = request.form['password']
+        print(password)
 
         # 데이터베이스에서 사용자 찾기
         user = Register.query.filter_by(id=id, password=password).first()
-
+        print(user)
         if user:
             # 로그인 성공 & 세션에 사용자 ID 저장하기
             session['login'] = True

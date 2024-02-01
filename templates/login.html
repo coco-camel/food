@@ -8,19 +8,9 @@
 </head>
 
 <body>
-
     <style>
-        /* #button {
-            color: #fff;
-            font-size: 16px;
-            background-color: #6A24FE;
-            margin-top: 50px;
-            padding: 10px;
-            border-radius: 5px;
-        } */
-
         @import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
-
+        
         * {
         box-sizing: border-box;
         }
@@ -273,6 +263,14 @@
         /* .container.right-panel-active .overlay-right {
         transform: translateX(20%);
         } */
+
+        .login-message {
+        color: gray;
+        font-size: 16px;
+        padding: 25px;
+        }
+
+
     </style>
     
 <!-- 담당 김우정 -->
@@ -311,10 +309,12 @@
     
         {% endif %}
         
-        {% if message and not session.get('login') %}
+        <!-- {% if message and not session.get('login') %}
             <p style="color: red;">{{ message }}</p>
-        {% endif %}
+        {% endif %} -->
     {% endblock %}
+
+    <div class="login-message">{{ message }}</div>
 
 </body>
 
