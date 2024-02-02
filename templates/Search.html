@@ -4,26 +4,99 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="../static/main.css" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     
     <style>
+      /* search */
+      
+      .search_wrap{
+        position: relative;
+        text-align: center;
+        transition: transform .3s ease;
+      }
+      .search form{
+        margin-top: 30;
+      }
 
+      .search_wrap input {
+      width: 300px;
+      height: 40px;
+      padding: 10px 100px 10px 30px;
+      border: 1px solid gray;
+      border-radius: 30px;
+      margin: 30px auto;
+    }
+    .search_wrap input:hover{
+      transform: translate(3px, 3px);
+      filter: drop-shadow(3px 3px 4px rgba(0, 0, 0, 0.161));
+    }
+    
+    /* list */
+    .board_list{
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+    .board_list > .item {
+      width: 30%;
+      height: 440px;
+      margin: 40px 0;
+      border-bottom: 1px solid #cdcdcd;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .board_list > .itemImage {
+      width: 100%;
+      height: 350px;
+    }
+
+    .itemImage a img {
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+    }
+
+    .itemImage:hover{
+      transform: scale(1.05);
+      transition: .3s ease;
+    }
+
+    .itemDesc {
+      overflow: hidden;
+      white-space: nowrap;
+    }
+
+    .itemDesc h1 {
+      display: inline-block;
+      font-size: 32px;
+      margin-bottom: 20px;
+    }
+
+    .itemDesc p {
+      font-size: 15px;
+      color: #737373;
+    }
   </style>
   </head>
   <body>
     <nav>{% include 'header.html' %}</nav>
-    <header>
-      <section class="search">
-        <form action="{{ url_for('main_cate', category=data1) }}">
-        <input type="text" name="location" placeholder="검색어를 입력하세요"/>
-        <button type="submit" class="btn btn-outline-dark">search</button>
-      </form>
-      </section>
-      <a href="{{url_for('recommend')}}"">맛집 추가</a>
-    </header>
 
-    <section class="list">
+      <section class="search_wrap">
+        <div>
+          <form action="{{ url_for('main_cate', category=data1) }}">
+            <input type="text" name="location" placeholder="검색어를 입력하세요"/>
+            <button type="submit" class="btn btn-outline-dark">search</button>
+          </form>
+        </div>
+        <div>
+          <a href="{{url_for('recommend')}}">맛집 추가</a>
+        </dvi>
+      </section>
+
+
+    <section class="board_list">
       {% for item in data %}
       <div class="item">
         <div class="itemImage">
