@@ -63,12 +63,13 @@
                   <a class="lockStatusButton" href="/logout">
                       <i class="material-icons lockIcon">lock_outline</i>
                   </a>
+                  <div class="user_comm">"{{ session['id'] }}"님 환영합니다.</div>
               {% else %}
                   <div class="container">
                       <a class="unlockStatusButton" href="/login">
                           <i class="material-icons unlockIcon">lock_open</i>
                       </a>
-                  </div>      
+                  </div> 
           </div>        
               {% endif %}
           {% endblock %}

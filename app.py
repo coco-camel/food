@@ -76,7 +76,7 @@ def user_create():
         user_account = Register(user=user, password=password)
         db.session.add(user_account)
         db.session.commit()
-        return redirect(url_for("home"))
+        return redirect(url_for("login"))
 
 # 게시글 작성
 
@@ -97,7 +97,7 @@ def recommend_restaurant():
     db.session.add(recommend_list)
     db.session.commit()
 
-    return render_template("search.html")
+    return redirect(url_for('main_cate', category='all'))
 
 # 로그인 라우트
 
@@ -111,11 +111,11 @@ def login():
         id = request.form['id']
         password = request.form['password']
         # 데이터베이스에서 사용자 찾기
-        user = Register.query.filter_by(user=id, password=password).first()
-        if user:
+        User = Register.query.filter_by(user=id, password=password).first()
+        if User:
             # 로그인 성공 & 세션에 사용자 ID 저장하기
             session['login'] = True
-            session['id'] = user.id
+            session['id'] = User.user
             return redirect(url_for('home'))
         else:
             # 로그인 실패

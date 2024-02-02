@@ -4,45 +4,51 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-    <link rel="stylesheet" href="/static/style.css" type="text/css" />  
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="/static/style.css" type="text/css" />
   </head>
   <body>
     <nav>{% include 'header.html' %}</nav>
-
+    <div class="search_main">
       <section class="search_wrap">
         <div>
           <form action="{{ url_for('main_cate', category=data1) }}">
-            <input type="text" name="location" placeholder="검색어를 입력하세요"/>
+            <input
+              type="text"
+              name="location"
+              placeholder="검색어를 입력하세요"
+            />
             <button type="submit" class="btn btn-outline-dark">search</button>
           </form>
+          <a class="re_sign" href="{{url_for('recommend')}}"
+            >맛집 추가하러 가기</a
+          >
         </div>
-        <div>
-          <a href="{{url_for('recommend')}}">맛집 추가</a>
-        </dvi>
       </section>
-
-
-    <section class="board_list">
-      {% for item in data %}
-      <div class="item">
-        <div class="itemImage">
-          <a href="{{ item.location_url }}" target="_blank">
-            <img src="{{ item.image_url }}" alt="">
-          </a>
-        </div>
-        <div class="itemDesc">
-          <h1>{{ item.name }}</h1>
-          <p>{{ item.description }} </p>
-        </div>
-      </div>
-      {% endfor %}
-    </section>
-
-          </form>
-        </div>
+      <div class="search_list">
+        <section class="board_list">
+          {% for item in data %}
+          <div class="item">
+            <div class="itemImage">
+              <a href="{{ item.location_url }}" target="_blank">
+                <img src="{{ item.image_url }}" alt="" />
+              </a>
+            </div>
+            <div class="itemDesc">
+              <h1>{{ item.name }}</h1>
+              <p>{{ item.description }}</p>
+            </div>
+          </div>
+          {% endfor %}
+        </section>
       </div>
     </div>
+
     <footer>{% include 'footer.html' %}</footer>
   </body>
 </html>
