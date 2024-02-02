@@ -25,12 +25,12 @@
         text-align: center;
       }
 
-      .list_wrap {
+      .footer_main > .list_wrap {
         margin-right: 40px;
         vertical-align: top;
       }
 
-      .item {
+      .list_wrap > .item {
         display: inline-block;
         margin-right: 10px;
       }
@@ -42,14 +42,15 @@
         align-items: center;
       }
 
-      .footer_item>span {
+      .footer_item > span {
         color: rgb(148, 148, 148);
+        margin-top: 10px;
       }
 
-      .footer_item>img {
+      .footer_item > .image_url {
         width: 30px;
-        margin: 0 10px 0 40px;
         filter: invert(100%);
+        margin: 0 10px 0 40px;
       }
     </style>
   </head>
@@ -64,7 +65,11 @@
         </ul>
         <div class="footer_item">
           <span>항해99 19기 미니프로젝트 1조</span>
-          <img id="git_url" src="https://simpleicons.org/icons/github.svg">
+          <div class="image_url">
+            <a href="https://github.com/coco-camel/food"
+              ><img id="git_url" src="https://simpleicons.org/icons/github.svg"
+            /></a>
+          </div>
         </div>
       </div>
     </footer>

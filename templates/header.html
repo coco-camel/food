@@ -1,161 +1,229 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cute+Font&family=Diphylleia&family=Poor+Story&display=swap"
-        rel="stylesheet">
-
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cute+Font&family=Diphylleia&family=Poor+Story&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+      crossorigin="anonymous"
+    />
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-        }
 
-        nav {
-       
-            width: 100%;          
-            transition: top 0.3s;   
-            z-index: 1000;
-       
-        }
-
-        .navbar {
-    background: rgb(255, 251, 243);
-    display: flex;
-    justify-content: space-around;
-    padding: 0px;
-    flex-wrap: wrap;
-    flex-direction: column;
-    align-content: center;
-    min-height: 50px;
-    align-items: center;
- 
+.lockStatusButton {
+  color: #ff0000; /* 빨간색 */
+  /* 다른 스타일 속성들 */
 }
 
-        .navbar-logo {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+.unlockStatusButton {
+  color: #00ff00; /* 초록색 */
+  /* 다른 스타일 속성들 */
+}
 
-            }
+      .navbar-logo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
 
-            .navbar-logo p {
-                font-size: 40px;
-                margin-right: 30px;
-                font-family: "Poor Story", system-ui;
-                font-weight: 800;
-            }
+      .navbar-logo p {
+        font-size: 40px;
+        margin-right: 30px;
+        font-family: "Poor Story", system-ui;
+        font-weight: 800;
+      }
 
-            .search {
-                width: 100%;
-                position: relative;
-                display: flex;
-            }
+      .search {
+        width: 100%;
+        position: relative;
+        display: flex;
+      }
 
-            .searchTerm {
-                width: 100%;
-                border: 3px solid #ffa136;
-                border-right: none;
-                padding: 5px;
-                border-radius: 14px 0 0 14px;
-                outline: none;
-                color: #d3dfd9;
-            }
+      .searchTerm {
+        width: 100%;
+        border: 3px solid #ffa136;
+        border-right: none;
+        padding: 5px;
+        border-radius: 14px 0 0 14px;
+        outline: none;
+        color: #d3dfd9;
+      }
 
-            .searchTerm:focus {
-                color: #b18c25;
-            }
+      .searchTerm:focus {
+        color: #b18c25;
+      }
 
-            .searchButton {
-                width: 40px;
-                height: 36px;
-                border: none;
-                background: rgb(255, 197, 37);
-                text-align: center;
-                color: #fff;
-                border-radius: 0 14px 14px 0;
-                cursor: pointer;
-                font-size: 20px;
-            }
+      .searchButton {
+        width: 40px;
+        height: 36px;
+        border: none;
+        background: rgb(255, 197, 37);
+        text-align: center;
+        color: #fff;
+        border-radius: 0 14px 14px 0;
+        cursor: pointer;
+        font-size: 20px;
+      }
 
-            #img {
-                margin-right: 30px;
-                width: 200px;
-                height: 200px;
-                padding: 10px;
-            }
+      #img {
+        margin-right: 30px;
+        width: 200px;
+        height: 200px;
+        padding: 10px;
+      }
+      .navbar-li {
+  margin-right: 35px;
+  position: relative;
+  background-color: rgb(255, 159, 69);
+  border-radius: 20px;
+  font-size: 18px;
+  padding: 6px;
+  box-shadow: 3px 3px 8px 3px rgb(177, 177, 177);
+  min-width: 80px;
+}
+.navbar-items {
+  list-style: none;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+.sign {
+  display: inline-block;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
 
-            .wrap {
-                padding-top: 30px;
-                width: 30%;
-                display: flex;
-                align-items: flex-end;
-            }
+    border-radius: 15px; /* 모서리 둥글게 */
+    background-color: #5de73a; /* 초록색 배경색 */
+    color: white; /* 텍스트 색상 */
+    font-size: 16px;
+}
+.navbar-ul {
+  display: flex;
+  font-size: 20px;
+  text-align: center;
+  text-decoration: none;
+  flex-wrap: nowrap;
+  justify-content: space-evenly;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  /* 추가: 기본 마진 제거 */
+  display: flex;
+}
+.navbar-li-a {
+  text-decoration: none;
+  /* 추가: a 태그의 기본 텍스트 밑줄 제거 */
+  color: #ffffff;
+  /* 추가: a 태그의 기본 색상 사용 */
+  font-family: "Cute Font", sans-serif;
+  ;
+}
 
-            .login {
-                padding-left: 20px;
-            }
-            .navbar{
-                display: flex;
-                flex-direction: row;
-                justify-content: center;
-                align-items: center;
-            }
-            .navbar>.login{
-                padding-left: 20px;
-                position: absolute;
-                /* left: 0; */
-                right: 40px;
-            }
-                
+
+.navbar-li-a:hover {
+  color: #000000;
+  /* 호버시 색상 변경 */
+}
+      .wrap {
+        padding-top: 30px;
+        width: 30%;
+        display: flex;
+        align-items: flex-end;
+      }
+
+      .login {
+        padding-left: 20px;
+      }
+      .navbar {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        background-color: #f2eee0;
+      }
+ 
     </style>
-</head>
+  </head>
 
-<body>
+  <body>
     <nav id="navbar">
-        <div class="navbar">
-            <div class="navbar-items">
-                <ul class="navbar-ul">
-                   <li class="navbar-li">
-                       <a class="navbar-li-a" href="{{url_for('main')}}">맛집조회</a>
-                   </li>
-                   <li class="navbar-li">
-                       <a class="navbar-li-a" href="{{url_for('main_cate', category= '한식')}}" id = "korean" value = "korean">🍲한식</a>
-                   </li>
-           
-                   <li class="navbar-li">
-                       <a class="navbar-li-a" href="{{url_for('main_cate', category= '중식')}}" id = "chinese">🥡중식</a>
-                   </li>
-           
-                   <li class="navbar-li">
-                       <a class="navbar-li-a" href="{{url_for('main_cate', category= '양식')}}" id = "western">🥩양식</a>
-                   </li>
-           
-                   <li class="navbar-li">
-                       <a class="navbar-li-a" href="{{url_for('main_cate', category= '일식')}}" id = "japanese">🍣일식</a>
-                   </li>
-               </ul>
-            </div>
-            <div class="login">
-               
-                <a href="#">login</a><a href="#">Sign Up</a>
-            </div>
-
-
-
-            <!-- <div class="navbar-logo">
+      <div class="navbar">
+        <a href="/"
+          ><img
+            style="width: 80px; height: 100px"
+            src="https://cdn.pixabay.com/photo/2012/04/01/18/01/backpacking-23788_1280.png"
+            id="img"
+        /></a>
+        <div class="navbar-items">
+          <ul class="navbar-ul">
+            <li class="navbar-li">
+                <a class="navbar-li-a" href="{{url_for('main')}}">맛집조회</a>
+            </li>
+            <li class="navbar-li">
+                <a class="navbar-li-a" href="{{url_for('main_cate', category= '한식')}}" id = "korean" value = "korean">🍲한식</a>
+            </li>
+    
+            <li class="navbar-li">
+                <a class="navbar-li-a" href="{{url_for('main_cate', category= '중식')}}" id = "chinese">🥡중식</a>
+            </li>
+    
+            <li class="navbar-li">
+                <a class="navbar-li-a" href="{{url_for('main_cate', category= '양식')}}" id = "western">🥩양식</a>
+            </li>
+    
+            <li class="navbar-li">
+                <a class="navbar-li-a" href="{{url_for('main_cate', category= '일식')}}" id = "japanese">🍣일식</a>
+            </li>
+        </ul>
+        </div>
+        <div class="login">
+          {% block content %}
+              {% if session['login'] %}
+                  <a class="lockStatusButton" href="/logout">
+                      <i class="material-icons lockIcon">lock_outline</i>
+                  </a>
+              {% else %}
+                  <div class="container">
+                      <a class="unlockStatusButton" href="/login">
+                          <i class="material-icons unlockIcon">lock_open</i>
+                      </a>
+                  </div>
+                    
+                    </div>
+              
+                     {% endif %}
+          {% endblock %}
+          <a class="sign" {% if session['login'] %} style="display: none;" {% endif %} href="/join">Sign Up</a>
+    </nav>
+  
+      
+        <!-- <div class="navbar-logo">
                 <a href="#"><img src="https://cdn.pixabay.com/photo/2012/04/01/18/01/backpacking-23788_1280.png"
                         id="img"></a>
                 <p>맛집 발견 대장정</p>
             </div> -->
-            <!-- <div class="wrap">
+        <!-- <div class="wrap">
+              <div class="wrap">
                 <div class="search">
                     <input type="text" class="searchTerm" placeholder="맛집을 검색하세요!">
                     <button type="submit" class="searchButton">
@@ -165,6 +233,9 @@
 
                 <a class="login" href="#">Login</a><a class="login" href="#">SignUp</a>
             </div> -->
+      </div>
+
+            </div> 
 
         </div>
 
@@ -173,20 +244,17 @@
     <!-- Your page content goes here -->
 
     <script>
-        window.addEventListener('scroll', function () {
-            var navbar = document.getElementById('navbar');
+$( ".unlockStatusButton" ).click(function() {
+  $( ".unlockStatusButton" ).hide();
+  $( ".lockStatusButton" ).show();
+  $(".signup").hide();
+});
 
-            // Scroll position is greater than 50px, show navbar, else hide it
-            if (window.scrollY > 50) {
-                navbar.style.top = '-50px';
-            } else {
-                navbar.style.top = '-50px';
-            }
-        });
-
-
+$( ".lockStatusButton" ).click(function() {
+  $( ".lockStatusButton" ).hide();
+  $( ".unlockStatusButton" ).show();
+  $(".signup").show();
+});
     </script>
-</body>
-
-
+  </body>
 </html>

@@ -1,309 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>맛집 발견 대장정</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-...">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cute+Font&family=Diphylleia&family=Poor+Story&display=swap" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 
-</head>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      integrity="sha512-..."
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cute+Font&family=Diphylleia&family=Poor+Story&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+      crossorigin="anonymous"
+    />
+    <style>
+      .navbar-logo > .highlight {
+        font-weight: bold;
+        font-family: "Poor Story", system-ui;
+        font-size: 50px;
+      }
+      .navbar-logo > .main_text {
+        color: rgb(35, 35, 35);
+        font-size: 30px;
+        font-family: "Cute Font", sans-serif;
+        font-weight: 800;
+      }
+      .navbar-logo {
+        margin-top: 50px;
+      }
 
-<body>
-<!-- 담당 이혜인, 김준오 -->
+    </style>
+  </head>
 
+  <body>
+    <!-- 담당 이혜인, 김준오 -->
 
-
-<nav>
-    {% include 'header.html' %}  
-</nav>
-
-
-
-<div class="main">
-
-
-
-
-<div class="slider">
-    <div class="slides">
-        <div class="slide">
-            <div class="slideimg" id="slide-1">
-                <img src="https://cdn.pixabay.com/photo/2015/11/19/10/38/food-1050813_1280.jpg" alt="">
-                <div class="text-overlay">
-                    <h1><span class="highlight">새로운 맛집</span>을 발견하고 <br> <span class="highlight">나만의 맛집</span>을 기록하는 </h1>
-                    <h5>맛집 발견 대장정에서 더 많은 맛집을 발견해보세요!</h5>
-
-                    <button class="button">나만의 맛집 기록하러 가기</button>
-                </div>
-            </div>
-        </div>
-        <div class="slide">
-            <div class="slideimg" id="slide-2">
-                <img src="https://cdn.pixabay.com/photo/2016/08/25/02/57/japans-1618622_1280.jpg" alt="">
-                <div class="text-overlay">
-                 
-                    <p>초밥 맛집 바로가기!</p>
-                </div>
-            </div>
-        </div>
-        <div class="slide">
-            <div class="slideimg" id="slide-3">
-                <img src="https://cdn.pixabay.com/photo/2014/11/05/15/57/salmon-518032_1280.jpg" alt="">
-                <div class="text-overlay">
-                  
-                    <p>연어스테이크 <br>
-                        맛집 추천</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="slide">
-            <div class="slideimg" id="slide-4">
-                <img src="https://cdn.pixabay.com/photo/2017/12/09/08/18/pizza-3007395_1280.jpg" alt="">
-                <div class="text-overlay">
-                  
-                    <p>오늘 피자 어때요? </p>
-                </div>
-            </div>
-        </div>
-
-        
+      <nav>{% include 'header.html' %}</nav>
     </div>
 
-    <a href="#slide-1"></a>
-    <a href="#slide-2"></a>
-    <a href="#slide-3"></a>
-    <a href="#slide-4"></a>
-</div>
-
-
-
-
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      var navButtons = document.querySelectorAll(".slider > a");
-  
-      // 페이지 로드 시 첫 번째 버튼에 'active' 클래스를 추가합니다.
-      navButtons[0].classList.add("active");
-  
-      navButtons.forEach(function (button) {
-        button.addEventListener("click", function () {
-          // 클릭된 버튼의 클래스를 모두 제거합니다.
-          navButtons.forEach(function (btn) {
-            btn.classList.remove("active");
-          });
-  
-          // 클릭된 버튼에 'active' 클래스를 추가합니다.
-          button.classList.add("active");
-        });
-      });
-    });
-  </script>
-  
-</div>
-
-<div class="navbar-items">
-
-
-     <ul class="navbar-ul">
-        <li class="navbar-li">
-            <a class="navbar-li-a" href="#">맛집조회</a>
-        </li>
-        <li class="navbar-li">
-            <a class="navbar-li-a" href="#">🍲한식</a>
-        </li>
-
-        <li class="navbar-li">
-            <a class="navbar-li-a" href="#">🥡중식</a>
-        </li>
-
-        <li class="navbar-li">
-            <a class="navbar-li-a" href="#">🥩양식</a>
-        </li>
-
-        <li class="navbar-li">
-            <a class="navbar-li-a" href="#">🍣일식</a>
-        </li>
-    </ul>
+    <div class="navbar-logo">
+      <a href="#"
+        ><img
+          src="https://cdn.pixabay.com/photo/2012/04/01/18/01/backpacking-23788_1280.png"
+          id="img"
+      /></a>
+      <span class="highlight">맛집 발견 대장정</span>
+      <span class="main_text"
+        >맛집 발견 대장정에서 더 많은 맛집을 발견해보세요!</span
+      >
     </div>
-    <div class="container">
+      <div class="main">{% include 'slide.html' %}</div>
+    <footer>{% include 'footer.html' %}</footer>
 
-
-
-        
-
-
-  
-        <div class="jumbotron">
-            <h1>새로운 맛집을 발견!! </h1>
-          </div>
-          
-          <div class="row js-slick-carousel">
-            
-              <div class="col">
-                <div class="card">
-                  <img class="aspect-16to9 card-img-top" src="https://campaign-cdn.pstatic.net/0/campaign/2022/06/gabojagoseoul/img/wish_item1-3.png" alt="" />
-                  
-                  <div class="card-body p-16to9">
-                    
-                    <div class="card-body-content">
-                      <h5 class="card-title">난포</h5>
-                      <p class="card-text">
-                         한식, 성동구
-                      </p>
-                    </div>
-                    
-                  </div>
-                  
-                </div>
-              </div>
-        
-        
-         
-            
-              <!-- second half cards -->
-        
-            <div class="col">
-              <div class="card">
-                <img class="aspect-16to9 card-img-top" src="https://campaign-cdn.pstatic.net/0/campaign/2022/06/gabojagoseoul/img/wish_item1-2.png" alt="" />
-                <div class="card-body p-16to9">
-                    
-                  <div class="card-body-content">
-                    <h5 class="card-title">몰또 이탈리안 에스프레소바</h5>
-                    <p class="card-text">
-                       카페,중구
-                    </p>
-                  </div>
-                  
-                </div>
-              </div>
-            </div>
-        
-            <div class="col">
-              <div class="card">
-                <img class="aspect-16to9 card-img-top" src="https://campaign-cdn.pstatic.net/0/campaign/2022/06/gabojagoseoul/img/wish_item2-4.png" alt="" />
-                <div class="card-body p-16to9">
-                    
-                  <div class="card-body-content">
-                    <h5 class="card-title">송계옥</h5>
-                    <p class="card-text">
-                        닭요리,송파구
-                    </p>
-                  </div>
-                  
-                </div>
-              </div>
-            </div>
-        
-            <div class="col">
-              <div class="card">
-                <img class="card-img-top aspect-16to9" src="https://campaign-cdn.pstatic.net/0/campaign/2022/06/gabojagoseoul/img/wish_item3-2.png" alt="" />
-                <div class="card-body p-16to9">
-                    
-                  <div class="card-body-content">
-                    <h5 class="card-title">오제제</h5>
-                    <p class="card-text">
-                       일식당,용산구
-                    </p>
-                  </div>
-                  
-                </div>
-              </div>
-            </div>
-          </div> <!-- row -->
-  
-        <div class="jumbotron">
-          <h1>요즘<span class="highlight"> 인기</span> <br>
-            급상승한 이곳!</h1>
-        </div>
-        
-        <div class="row js-slick-carousel">
-          
-            <div class="col">
-              <div class="card">
-                <img class="aspect-16to9 card-img-top" src="https://campaign-cdn.pstatic.net/0/campaign/2022/06/gabojagoseoul/img/wish_item1-3.png" alt="" />
-                
-                <div class="card-body p-16to9">
-                  
-                  <div class="card-body-content">
-                    <h5 class="card-title">난포</h5>
-                    <p class="card-text">
-                       한식, 성동구
-                    </p>
-                  </div>
-                  
-                </div>
-                
-              </div>
-            </div>
-      
-      
-       
-          
-            <!-- second half cards -->
-      
-          <div class="col">
-            <div class="card">
-              <img class="aspect-16to9 card-img-top" src="https://campaign-cdn.pstatic.net/0/campaign/2022/06/gabojagoseoul/img/wish_item1-2.png" alt="" />
-              <div class="card-body p-16to9">
-                  
-                <div class="card-body-content">
-                  <h5 class="card-title">몰또 이탈리안 에스프레소바</h5>
-                  <p class="card-text">
-                     카페,중구
-                  </p>
-                </div>
-                
-              </div>
-            </div>
-          </div>
-      
-          <div class="col">
-            <div class="card">
-              <img class="aspect-16to9 card-img-top" src="https://campaign-cdn.pstatic.net/0/campaign/2022/06/gabojagoseoul/img/wish_item2-4.png" alt="" />
-              <div class="card-body p-16to9">
-                  
-                <div class="card-body-content">
-                  <h5 class="card-title">송계옥</h5>
-                  <p class="card-text">
-                      닭요리,송파구
-                  </p>
-                </div>
-                
-              </div>
-            </div>
-          </div>
-      
-          <div class="col">
-            <div class="card">
-              <img class="card-img-top aspect-16to9" src="https://campaign-cdn.pstatic.net/0/campaign/2022/06/gabojagoseoul/img/wish_item3-2.png" alt="" />
-              <div class="card-body p-16to9">
-                  
-                <div class="card-body-content">
-                  <h5 class="card-title">오제제</h5>
-                  <p class="card-text">
-                     일식당,용산구
-                  </p>
-                </div>
-                
-              </div>
-            </div>
-          </div>
-        </div> <!-- row -->
-
-    </div> <!-- container -->
-<footer>
-    {% include 'footer.html' %}  
-</footer>
-
-
- 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
- 
-
-</body>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
