@@ -21,23 +21,7 @@
       integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
       crossorigin="anonymous"
     />
-    <style>
-      .navbar-logo > .highlight {
-        font-weight: bold;
-        font-family: "Poor Story", system-ui;
-        font-size: 50px;
-      }
-      .navbar-logo > .main_text {
-        color: rgb(35, 35, 35);
-        font-size: 30px;
-        font-family: "Cute Font", sans-serif;
-        font-weight: 800;
-      }
-      .navbar-logo {
-        margin-top: 50px;
-      }
-
-    </style>
+    <link rel="stylesheet" href="/static/style.css" type="text/css" />
   </head>
 
   <body>
@@ -57,7 +41,7 @@
         >맛집 발견 대장정에서 더 많은 맛집을 발견해보세요!</span
       >
     </div>
-      <div class="main">{% include 'slide.html' %}</div>
+      <div class="main_slide_wrap">{% include 'slide.html' %}</div>
     <footer>{% include 'footer.html' %}</footer>
 
     <script
