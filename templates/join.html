@@ -4,57 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <style>
-      .joinPage {
-        background: linear-gradient(
-          0deg,
-          rgba(34, 193, 195, 1) 0%,
-          rgba(253, 187, 45, 1) 100%
-        );
-        box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
-          0 10px 10px rgba(0, 0, 0, 0.22);
-        color: white;
-        width: 400px;
-        height: 400px;
-        border-radius: 1rem;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-      }
-      .joinFormHeader {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 3rem;
-        margin: 2rem 0;
-      }
-      .joinForm {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        font-size: 1rem;
-        gap: 1rem;
-      }
-      .joinUserId, .joinUserPwd {
-        margin: 0.5rem 0;
-        width: 15rem;
-        padding: 1rem;
-        border: 1px solid #eee;
-        border-radius: 1rem;
-        background-color: #eee;
-        border: none;
-      }
-      .joinBtn {
-        border: 1px solid #eee;
-        padding: 1.25rem 1.5rem;
-        border-radius: 1rem;
-        color: white;
-        background-color: transparent;
-        cursor: pointer;
-      }
-    </style>
+    <link rel="stylesheet" href="/static/style.css" type="text/css" />
   </head>
   <body>
     <nav>{% include 'header.html' %}</nav>
@@ -62,7 +12,12 @@
       <div class="joinFormHeader">
         <h2>회원가입</h2>
       </div>
-      <form action="{{url_for('user_create')}}" , method="POST" class="joinForm">
+      <form
+        action="{{url_for('user_create')}}"
+        ,
+        method="POST"
+        class="joinForm"
+      >
         <!-- 아이디 중복 경고창 -->
         {% with messages = get_flashed_messages() %} {% if messages %}
         <script>

@@ -4,89 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <style>
-      .recommendPage {
-        background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%);
-        box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
-        color: white;
-        width: 400px;
-        height: 700px;
-        border-radius: 1rem;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-      }
-
-      .recommendFormHeader {
-        display: flex;
-        justify-content: center;
-      }
-
-      .prevPageMoveBtn {
-        text-decoration: none;
-        color: #eee;
-        font-weight: bold;
-        font-size: 1.5rem;
-        position: absolute;
-        top: 1rem;
-        right: 1rem;
-        cursor: pointer;
-      }
-
-      .recommendForm {
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        align-items: center;
-        font-size: 1rem;
-        height: 100%;
-      }
-
-      .restaurantNameBox {
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
-        width: 100%;
-        margin-left: 3rem;
-      }
-
-      .restaurantName {
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
-      }
-
-      .recommendIpt {
-        margin: 0.5rem 0;
-        width: 23rem;
-        padding: 1rem;
-        border: 1px solid #eee;
-        border-radius: 1rem;
-        box-sizing: border-box;
-        margin-left: 0.5rem;
-      }
-
-      #foodCategory, #locationCategory {
-        margin: 0.5rem 0;
-        width: 23rem;
-        padding: 1rem;
-        border: 1px solid #eee;
-        border-radius: 1rem;
-        box-sizing: border-box;
-        margin-left: 0.5rem;
-      }
-
-      .shareBtn {
-        border: 1px solid #eee;
-        background-color: transparent;
-        padding: 1rem 1rem;
-        border-radius: 1rem;
-        color: white;
-        cursor: pointer;
-        margin-top: 1rem;
-      }
-    </style>
+    <link rel="stylesheet" href="/static/style.css" type="text/css" />
   </head>
   <body>
     <!-- 담당 이충녕 -->
@@ -95,14 +13,28 @@
       <div class="recommendFormHeader">
         <h2>추천 맛집 공유</h2>
         <!-- serch 페이지 이동 -->
-        <a href="{{url_for('main')}}" class="prevPageMoveBtn">←</a>
+        <a
+          href="{{url_for('main_cate', category = 'all')}}"
+          class="prevPageMoveBtn"
+          >←</a
+        >
       </div>
-      <form action="{{url_for('recommend_restaurant')}}" , method="POST" class="recommendForm">
+      <form
+        action="{{url_for('recommend_restaurant')}}"
+        ,
+        method="POST"
+        class="recommendForm"
+      >
         <div class="restaurantNameBox">
           <label for="name">맛집 이름</label>
         </div>
         <div class="restaurantName">
-          <input placeholder="맛집 이름을 입력하세요." name="name" id="name" class="recommendIpt"/>
+          <input
+            placeholder="맛집 이름을 입력하세요."
+            name="name"
+            id="name"
+            class="recommendIpt"
+          />
         </div>
 
         <div class="categoryBox">
@@ -131,7 +63,11 @@
         </div>
         <div class="inputBox">
           <input
-            placeholder="추천 맛집에 대해 설명해주세요." name="description" id="description" class="recommendIpt"/>
+            placeholder="추천 맛집에 대해 설명해주세요."
+            name="description"
+            id="description"
+            class="recommendIpt"
+          />
         </div>
 
         <div class="selectTitle">
@@ -139,7 +75,11 @@
         </div>
         <div class="location_urlBox">
           <input
-            placeholder="맛집 네이버 플레이스 url을 입력해주세요" name="location_url" id="location_url" class="recommendIpt"/>
+            placeholder="맛집 네이버 플레이스 url을 입력해주세요"
+            name="location_url"
+            id="location_url"
+            class="recommendIpt"
+          />
         </div>
 
         <div class="selectTitle">
@@ -147,7 +87,11 @@
         </div>
         <div class="image_urlBox">
           <input
-            placeholder="음식 이미지를 입력해주세요." name="image_url" id="image_url" class="recommendIpt"/>
+            placeholder="음식 이미지를 입력해주세요."
+            name="image_url"
+            id="image_url"
+            class="recommendIpt"
+          />
         </div>
 
         <button type="submit" class="shareBtn">공유</button>

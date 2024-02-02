@@ -180,3 +180,369 @@ body {
   filter: invert(100%);
   margin: 0 10px 0 40px;
 }
+
+.recommendPage {
+  background: linear-gradient(
+    0deg,
+    rgba(34, 193, 195, 1) 0%,
+    rgba(253, 187, 45, 1) 100%
+  );
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
+    0 10px 10px rgba(0, 0, 0, 0.22);
+  color: white;
+  width: 400px;
+  height: 700px;
+  border-radius: 1rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.recommendFormHeader {
+  display: flex;
+  justify-content: center;
+}
+
+.prevPageMoveBtn {
+  text-decoration: none;
+  color: #eee;
+  font-weight: bold;
+  font-size: 1.5rem;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  cursor: pointer;
+}
+
+.recommendForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 1rem;
+  height: 100%;
+}
+
+.restaurantNameBox {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  margin-left: 3rem;
+}
+
+.restaurantName {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.recommendIpt {
+  margin: 0.5rem 0;
+  width: 23rem;
+  padding: 1rem;
+  border: 1px solid #eee;
+  border-radius: 1rem;
+  box-sizing: border-box;
+  margin-left: 0.5rem;
+}
+
+#foodCategory,
+#locationCategory {
+  margin: 0.5rem 0;
+  width: 23rem;
+  padding: 1rem;
+  border: 1px solid #eee;
+  border-radius: 1rem;
+  box-sizing: border-box;
+  margin-left: 0.5rem;
+}
+
+.shareBtn {
+  border: 1px solid #eee;
+  background-color: transparent;
+  padding: 1rem 1rem;
+  border-radius: 1rem;
+  color: white;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
+.search_wrap{
+  position: relative;
+  text-align: center;
+  transition: transform .3s ease;
+}
+
+.search form{
+  margin-top: 30;
+}
+
+.search_wrap input {
+width: 300px;
+height: 40px;
+padding: 10px 100px 10px 30px;
+border: 1px solid gray;
+border-radius: 30px;
+margin: 30px auto;
+}
+.search_wrap input:hover{
+transform: translate(3px, 3px);
+filter: drop-shadow(3px 3px 4px rgba(0, 0, 0, 0.161));
+}
+
+/* list */
+.board_list{
+display: flex;
+flex-wrap: wrap;
+justify-content: space-between;
+}
+
+.board_list > .item {
+width: 30%;
+height: 440px;
+margin: 40px 0;
+border-bottom: 1px solid #cdcdcd;
+margin-left: auto;
+margin-right: auto;
+}
+
+.board_list > .itemImage {
+width: 100%;
+height: 350px;
+}
+
+.itemImage a img {
+width: 100%;
+height: 320px;
+object-fit: cover;
+}
+
+.itemImage:hover{
+transform: scale(1.05);
+transition: .3s ease;
+}
+
+.itemDesc {
+overflow: hidden;
+white-space: nowrap;
+}
+
+.itemDesc h1 {
+display: inline-block;
+font-size: 32px;
+margin-bottom: 20px;
+}
+
+.itemDesc p {
+font-size: 15px;
+color: #737373;
+}
+
+:root {
+  --card-margin: 10px;
+  --carousel-height: 300px;
+}
+
+/* 텍스트의 스타일 */
+.overlay-text {
+  position: absolute;
+  top: 50%; /* 부모 요소 상단에서 50% 위치에 배치 */
+  left: 50%; /* 부모 요소 왼쪽에서 50% 위치에 배치 */
+  transform: translate(
+    -50%,
+    -50%
+  ); /* 텍스트의 중심을 부모 요소의 가운데로 이동 */
+  color: #fff; /* 텍스트 색상 */
+  font-size: 24px; /* 텍스트 크기 */
+  font-weight: bold; /* 텍스트 굵기 */
+  text-align: center; /* 텍스트 가운데 정렬 */
+}
+
+.slick-track {
+  display: flex;
+}
+
+.carousel {
+  position: relative;
+  width: 90%;
+  max-width: 3000px;
+  margin: 0 auto;
+}
+
+.is-control {
+  background: 0;
+  border: 0;
+  padding: 0 10px;
+  z-index: 1;
+  cursor: pointer;
+  font-size: 40px;
+  color: rgba(255, 134, 21, 0.945);
+  transition: all 0.2s linear;
+}
+
+.is-control:hover {
+  color: rgb(255, 149, 29);
+}
+
+.is-control:focus {
+  outline: none;
+  background-color: rgba(255, 162, 55, 0.8);
+  color: rgba(255, 255, 255, 1);
+  border-radius: 5px;
+}
+
+.previous-button {
+  position: absolute;
+  left: -50px;
+  top: calc(var(--carousel-height) / 2 - 30px);
+}
+
+.next-button {
+  position: absolute;
+  right: -50px;
+  top: calc(var(--carousel-height) / 2 - 30px);
+}
+
+.card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 3px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.9);
+  cursor: pointer;
+  transition: all 0.1s linear;
+}
+
+.slick-slide:not(:last-of-type) {
+  margin-right: var(--card-margin);
+}
+
+.card a {
+  text-decoration: none;
+}
+
+.card .image {
+  height: 300px;
+  overflow: hidden;
+}
+
+.card .image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card .title {
+  margin: 0;
+  padding: 10px 10px 5px 10px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #ffb35d;
+}
+
+.card:hover .image img {
+  filter: blur(3px);
+
+  transform: scale(1.1); /* 이미지 확대 */
+  transition: filter 0.3s ease, transform 0.3s ease; /* 트랜지션 효과 추가 */
+}
+
+.card:hover .title {
+  text-decoration: underline;
+}
+
+.card a:focus {
+  outline: none;
+}
+
+.card:focus-within {
+  border-color: hsl(204, 86%, 53%);
+  box-shadow: 0 0 0 2px hsl(204, 86%, 53%);
+}
+
+.card:focus-within .title,
+.card:focus-within .content {
+  color: hsl(217, 71%, 53%);
+}
+
+.card:focus-within .title {
+  text-decoration: underline;
+}
+
+.credits {
+  margin-left: 40px;
+  padding: 10px;
+  font-size: 14px;
+  color: rgb(255, 144, 17);
+  text-decoration: none;
+  opacity: 0.7;
+}
+
+.credits img {
+  height: 30px;
+  margin-left: 5px;
+  margin-top: -2px;
+  vertical-align: middle;
+}
+
+.credits:hover,
+.credits:focus {
+  opacity: 1;
+}
+
+.joinPage {
+  background: linear-gradient(
+    0deg,
+    rgba(34, 193, 195, 1) 0%,
+    rgba(253, 187, 45, 1) 100%
+  );
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
+    0 10px 10px rgba(0, 0, 0, 0.22);
+  color: white;
+  width: 400px;
+  height: 400px;
+  border-radius: 1rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.joinFormHeader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 3rem;
+  margin: 2rem 0;
+}
+
+.joinForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+  gap: 1rem;
+}
+
+.joinUserId, .joinUserPwd {
+  margin: 0.5rem 0;
+  width: 15rem;
+  padding: 1rem;
+  border: 1px solid #eee;
+  border-radius: 1rem;
+  background-color: #eee;
+  border: none;
+}
+
+.joinBtn {
+  border: 1px solid #eee;
+  padding: 1.25rem 1.5rem;
+  border-radius: 1rem;
+  color: white;
+  background-color: transparent;
+  cursor: pointer;
+}
