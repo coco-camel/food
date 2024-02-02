@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
-      .myinput {
+      .joinPage {
         background: linear-gradient(
           0deg,
           rgba(34, 193, 195, 1) 0%,
@@ -22,14 +22,14 @@
         left: 50%;
         transform: translate(-50%, -50%);
       }
-      .formHeader {
+      .joinFormHeader {
         display: flex;
         justify-content: center;
         align-items: center;
         height: 3rem;
         margin: 2rem 0;
       }
-      form {
+      .joinForm {
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -37,18 +37,12 @@
         font-size: 1rem;
         gap: 1rem;
       }
-      input {
+      .joinUserId, .joinUserPwd {
         margin: 0.5rem 0;
         width: 15rem;
         padding: 1rem;
         border: 1px solid #eee;
         border-radius: 1rem;
-      }
-      input[type="text"] {
-        background-color: #eee;
-        border: none;
-      }
-      input[type="password"] {
         background-color: #eee;
         border: none;
       }
@@ -64,27 +58,23 @@
   </head>
   <body>
     <nav>{% include 'header.html' %}</nav>
-    <div class="myinput">
-      <div class="formHeader">
+    <div class="joinPage">
+      <div class="joinFormHeader">
         <h2>회원가입</h2>
       </div>
-      <form action="{{url_for('user_create')}}" , method="POST">
+      <form action="{{url_for('user_create')}}" , method="POST" class="joinForm">
+        <!-- 아이디 중복 경고창 -->
         {% with messages = get_flashed_messages() %} {% if messages %}
         <script>
           alert("{{messages[-1]}}");
         </script>
-        {% endif %} {% endwith %} {% with messages = get_flashed_messages() %}
-        {% if messages %}
-        <script>
-          alert("{{messages[-1]}}");
-        </script>
         {% endif %} {% endwith %}
-
         <input
           type="text"
           placeholder="아이디를 입력하세요."
           id="user"
           name="user"
+          class="joinUserId"
           required
         />
 
@@ -93,6 +83,7 @@
           placeholder="비밀번호를 입력하세요."
           id="password"
           name="password"
+          class="joinUserPwd"
           required
         />
         <!-- 완료되면 로그인페이지로 이동 -->

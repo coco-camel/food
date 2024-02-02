@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
-      .recommendForm {
+      .recommendPage {
         background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%);
         box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
         color: white;
@@ -18,12 +18,12 @@
         transform: translate(-50%, -50%);
       }
 
-      .formHeader {
+      .recommendFormHeader {
         display: flex;
         justify-content: center;
       }
 
-      .prevBtn {
+      .prevPageMoveBtn {
         text-decoration: none;
         color: #eee;
         font-weight: bold;
@@ -34,7 +34,7 @@
         cursor: pointer;
       }
 
-      form {
+      .recommendForm {
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
@@ -43,7 +43,7 @@
         height: 100%;
       }
 
-      .selectTitle {
+      .restaurantNameBox {
         display: flex;
         justify-content: flex-start;
         align-items: center;
@@ -51,13 +51,13 @@
         margin-left: 3rem;
       }
 
-      .inputBox {
+      .restaurantName {
         display: flex;
         justify-content: flex-start;
         align-items: center;
       }
 
-      input {
+      .recommendIpt {
         margin: 0.5rem 0;
         width: 23rem;
         padding: 1rem;
@@ -67,7 +67,7 @@
         margin-left: 0.5rem;
       }
 
-      select {
+      #foodCategory, #locationCategory {
         margin: 0.5rem 0;
         width: 23rem;
         padding: 1rem;
@@ -91,34 +91,34 @@
   <body>
     <!-- 담당 이충녕 -->
 
-    <div class="recommendForm">
-      <div class="formHeader">
+    <div class="recommendPage">
+      <div class="recommendFormHeader">
         <h2>추천 맛집 공유</h2>
         <!-- serch 페이지 이동 -->
-        <a href="/search" class="prevBtn">←</a>
+        <a href="{{url_for('main')}}" class="prevPageMoveBtn">←</a>
       </div>
-      <form action="{{url_for('recommend_restaurant')}}" , method="POST">
-        <div class="selectTitle">
+      <form action="{{url_for('recommend_restaurant')}}" , method="POST" class="recommendForm">
+        <div class="restaurantNameBox">
           <label for="name">맛집 이름</label>
         </div>
-        <div class="inputBox">
-          <input placeholder="맛집 이름을 입력하세요." name="name" id="name" />
+        <div class="restaurantName">
+          <input placeholder="맛집 이름을 입력하세요." name="name" id="name" class="recommendIpt"/>
         </div>
 
-        <div class="selectTitle">
+        <div class="categoryBox">
           <label for="category">카테고리</label>
         </div>
-        <select name="category" id="category">
+        <select name="category" id="foodCategory">
           <option value="한식" name="한식">한식</option>
           <option value="중식" name="중식">중식</option>
           <option value="일식" name="일식">일식</option>
           <option value="양식" name="양식">양식</option>
         </select>
 
-        <div class="selectTitle">
+        <div class="categoryBox">
           <label for="location">지역선택</label>
         </div>
-        <select name="location" id="location">
+        <select name="location" id="locationCategory">
           <option value="서울" name="서울">서울</option>
           <option value="인천" name="인천">인천</option>
           <option value="경기" name="경기">경기</option>
@@ -131,10 +131,7 @@
         </div>
         <div class="inputBox">
           <input
-            placeholder="추천 맛집에 대해 설명해주세요."
-            name="description"
-            id="description"
-          />
+            placeholder="추천 맛집에 대해 설명해주세요." name="description" id="description" class="recommendIpt"/>
         </div>
 
         <div class="selectTitle">
@@ -142,10 +139,7 @@
         </div>
         <div class="location_urlBox">
           <input
-            placeholder="맛집 네이버 플레이스 url을 입력해주세요"
-            name="location_url"
-            id="location_url"
-          />
+            placeholder="맛집 네이버 플레이스 url을 입력해주세요" name="location_url" id="location_url" class="recommendIpt"/>
         </div>
 
         <div class="selectTitle">
@@ -153,10 +147,7 @@
         </div>
         <div class="image_urlBox">
           <input
-            placeholder="음식 이미지를 입력해주세요."
-            name="image_url"
-            id="image_url"
-          />
+            placeholder="음식 이미지를 입력해주세요." name="image_url" id="image_url" class="recommendIpt"/>
         </div>
 
         <button type="submit" class="shareBtn">공유</button>

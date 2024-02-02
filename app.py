@@ -71,9 +71,6 @@ def user_create():
     if user_exists:
         flash("이미 존재하는 아이디입니다.")
         return redirect(url_for("join_screen"))
-    elif password_exists:
-        flash("고유한 비밀번호를 입력해주세요.")
-        return redirect(url_for("join_screen"))
     else:
         user_account = Register(user=user, password=password)
         db.session.add(user_account)
