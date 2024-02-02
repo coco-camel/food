@@ -35,6 +35,7 @@ with app.app_context():
 
 
 @app.route("/", methods=['GET', 'POST'])
+@app.route("/", methods=['GET', 'POST'])
 def home():
     if not session.get('login'):
         return render_template('index.html')
@@ -130,6 +131,8 @@ def logout():
     return redirect(url_for('home'))
 
 # 카테고리
+
+
 @app.route("/main/list/category=<category>", methods=['GET'])
 def main_cate(category):
     location = request.args.get("location")
@@ -139,18 +142,20 @@ def main_cate(category):
         if not location:
             restaurant_list = Restaurant.query.all()
         else:
-            restaurant_list = Restaurant.query.filter_by(location=location).all()
-        return render_template('search.html', data = restaurant_list, data1 = category)
+            restaurant_list = Restaurant.query.filter_by(
+                location=location).all()
+        return render_template('search.html', data=restaurant_list, data1=category)
     elif category != None and not location:
         restaurant_list = Restaurant.query.filter_by(category=category).all()
     else:
-        restaurant_list = Restaurant.query.filter_by(category=category, location=location).all()
+        restaurant_list = Restaurant.query.filter_by(
+            category=category, location=location).all()
 
-    return render_template('search.html', data = restaurant_list, data1 = category)
+    return render_template('search.html', data=restaurant_list, data1=category)
 
-
-    
     # 게시글 삭제/수정조작
+
+
 @app.route("/main/list/delete", methods=['DELETE'])
 def delete_post():
 
@@ -162,5 +167,6 @@ def delete_post():
 
 
 if __name__ == "__main__":
+    app.secret_key = "123123123"
     app.secret_key = "123123123"
     app.run(debug=True)

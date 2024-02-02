@@ -21,41 +21,70 @@
         height: 100vh;
         margin: -20px 0 0 0;
       }
-
-      h1 {
-        font-weight: bold;
-        margin: 0;
+      
+    .logged-in {
+      background-color: #eee;
+      border: none;
+      padding: 12px 15px;
+      margin: 8px 0;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly; /* 공간을 균등하게 분배하여 가로 정렬 */
+      width: 100%; /* 부모 요소에 가로 정렬을 맞추기 위해 100%로 설정 */
       }
-
-      h2 {
+      
+      #login-top {
+        font-weight: bold;
+        font-size: 65px;
+        margin: 15px;
+      }
+      
+      #login-body {
+        font-weight: bold;
+        font-size: 37px;
+        margin: 5px;
+      }
+      
+      form {
+        background-color: #ffffff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        padding: 0 50px;
+        height: 100%;
         text-align: center;
       }
-
-      p {
-        font-size: 14px;
-        font-weight: 100;
-        line-height: 20px;
-        letter-spacing: 0.5px;
-        margin: 20px 0 30px;
+      
+      #login-phrase {
+        margin: 10px;
       }
 
-      .logged-in-Phrases {
+      #sign-up-body {
+        font-weight: bold;
+        font-size: 37px;
+        margin: 5px;
+      }
+
+
+      #sign-up-phrase {
+        font-size: 22px;
+        margin: 25px;
+        width: 300px;
+        height: 100px;
+      }
+      
+      
+      
+      
+      .logged-in-phrases {
         font-weight: 500;
         font-size: 34px;
+        margin-bottom: 20px; /* 문장 사이에 여백 추가 */
       }
 
-      span {
-        font-size: 12px;
-      }
 
-      a {
-        color: #333;
-        font-size: 14px;
-        text-decoration: none;
-        margin: 15px 0;
-      }
-
-      button {
+      #login-button {
         border-radius: 20px;
         border: 1px solid rgb(34, 193, 195);
         background-color: rgb(34, 193, 195);
@@ -66,30 +95,34 @@
         letter-spacing: 1px;
         text-transform: uppercase;
         transition: transform 80ms ease-in;
+        /* margin-top: 20px; */
       }
 
-      button:active {
+      #sign-up-button {
+        border-radius: 20px;
+        border: 1px solid rgb(34, 193, 195);
+        background-color: rgb(34, 193, 195);
+        color: #ffffff;
+        font-size: 12px;
+        font-weight: bold;
+        padding: 12px 45px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        transition: transform 80ms ease-in;
+        /* margin-top: 20px; */
+      }
+
+      #sign-up-button:active {
         transform: scale(0.95);
       }
 
-      button:focus {
+      #sign-up-button:focus {
         outline: none;
       }
 
-      button.ghost {
+      #sign-up-button.ghost {
         background-color: transparent;
         border-color: #ffffff;
-      }
-
-      form {
-        background-color: #ffffff;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-        padding: 0 50px;
-        height: 100%;
-        text-align: center;
       }
 
       .container-logged-in {
@@ -108,23 +141,6 @@
         height: 50%;
         width: 50%;
         text-align: center;
-      }
-
-      .logged-in-Phrases {
-        margin-bottom: 20px; /* 문장 사이에 여백 추가 */
-      }
-
-      .logged-in {
-        background-color: #eee;
-        border: none;
-        padding: 12px 15px;
-        margin: 8px 0;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-evenly; /* 공간을 균등하게 분배하여 가로 정렬 */
-        width: 100%; /* 부모 요소에 가로 정렬을 맞추기 위해 100%로 설정 */
-        /* align-items: center;
-        justify-content: center;  */
       }
 
       input {
@@ -203,10 +219,6 @@
         z-index: 100;
       }
 
-      /* .container.right-panel-active .overlay-container{
-        transform: translateX(-100%);
-        } */
-
       .overlay {
         background: rgb(34, 193, 195);
         background: linear-gradient(
@@ -226,10 +238,6 @@
         transition: transform 0.6s ease-in-out;
       }
 
-      /* .container.right-panel-active .overlay {
-            transform: translateX(50%);
-        } */
-
       .overlay-panel {
         position: absolute;
         display: flex;
@@ -245,22 +253,10 @@
         transition: transform 0.6s ease-in-out;
       }
 
-      /* .overlay-left {
-        transform: translateX(-20%);
-        } */
-
-      /* .container.right-panel-active .overlay-left {
-        transform: translateX(0);
-        } */
-
       .overlay-right {
         right: 0;
         transform: translateX(0);
       }
-
-      /* .container.right-panel-active .overlay-right {
-        transform: translateX(20%);
-        } */
 
       .login-message {
         color: gray;
@@ -271,50 +267,45 @@
   </head>
 
   <body>
+    <!-- 담당 김우정 -->
     <div class="login_wrap">
-      <!-- 담당 김우정 -->
       {% block content %} {% if session['login'] %}
       <div class="container-logged-in" id="container-logged-in">
-        <p class="logged-in-Phrases">You are already logged in.</p>
-        <p class="logged-in-Phrases">Go back and enjoy your food journey!</p>
+        <div class="logged-in-phrases">You are already logged in.</div>
+        <div class="logged-in-phrases">Go back and enjoy your food journey!</div>
 
-        <div class="logged-in"><a href="/">메인 화면</a></div>
-        <div class="logged-in"><a href="/logout">로그아웃</a></div>
+        <button class="logged-in" id="logged-in-button" onclick="window.location.href='/'">메인화면</button>
+        <button class="logged-in" id="logged-in-button" onclick="window.location.href='/logout'">로그아웃</button>
       </div>
       {% else %}
 
-      <h1>Welcome!</h1>
+      <div id="login-top">Welcome!</div>
       <div class="container" id="container">
         <div class="form-container sign-in-container">
           <form action="/login" method="POST">
-            <h1>Login</h1>
+            <div id="login-body">Login</div>
             <input type="text" name="id" placeholder="Id" />
             <input type="text" name="password" placeholder="Password" />
-            <a href="#">Forgot your password?</a>
-            <button type="submit">Sign In</button>
+            <div id="login-phrase">Forgot your password?</div>
+            <button id="login-button" type="submit">Sign In</button>
           </form>
         </div>
         <div class="overlay-container">
           <div class="overlay">
             <div class="overlay-panel overlay-right">
-              <h1>Hello, Friend!</h1>
-              <p>Enter your personal details and start journey with us</p>
-              <a href="/join"
-                ><button class="ghost" id="signUp">Sign Up</button></a
-              >
+              <div id="sign-up-body">Hello, Friend!</div>
+              <div id="sign-up-phrase">Enter your personal details and start journey with us</div>
+              <button class="ghost" id="sign-up-button" onclick="window.location.href='/join'">Sign Up</button>
             </div>
           </div>
         </div>
       </div>
 
       {% endif %}
-
-      <!-- {% if message and not session.get('login') %}
-            <p style="color: red;">{{ message }}</p>
-        {% endif %} -->
       {% endblock %}
 
       <div class="login-message">{{ message }}</div>
+
     </div>
     <footer>{% include 'footer.html' %}</footer>
   </body>
